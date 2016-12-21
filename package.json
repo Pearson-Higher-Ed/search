@@ -1,11 +1,11 @@
 {
-  "name": "",
+  "name": "search",
   "version": "0.0.1",
   "description": "",
   "main": "./main.js",
   "scripts": {
     "dev-setup": "mkdir -p fonts && cp ./node_modules/pearson-elements/dist/fonts/* ./fonts && cp ./node_modules/pearson-elements/dist/css/elements.css ./demo",
-    "dev": "npm run dev-setup && webpack-dev-server --port 8081 --devtool source-map --hot --host 0.0.0.0 --progress --colors",
+    "dev": "npm run dev-setup && webpack-dev-server --port 8082 --devtool source-map --hot --host 0.0.0.0 --progress --colors",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-register --require babel-polyfill --require intl --require test/utils/dom.js",
     "build": "webpack -p",
@@ -52,6 +52,7 @@
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",
+    "react-paginate-component": "0.0.3",
     "sass-loader": "~3.2.0",
     "semver": "~5.1.0",
     "style-loader": "~0.13.0",
