@@ -1,11 +1,7 @@
 import React, {PropTypes} from 'react';
-import {messages} from './defaultMessages';
+//import {messages} from './defaultMessages';
 
 class ResultsComponent extends React.Component {
-
-  static propTypes = {
-    results: PropTypes.array.isRequired
-  };
 
   constructor(props) {
     super(props);
@@ -33,17 +29,19 @@ class ResultsComponent extends React.Component {
         key= {n.url}
         role="link"
         onClick = {that._handleClick(n.url, numResults)}
-      ><p className="title"> {n.title + ' :'}</p>
+      >
+        <span className="glossaryterm"></span>
+        <p className="title"> {n.title + ' :'}</p>
         <p className="content" dangerouslySetInnerHTML={{__html: n.contentPreview}} />
       </li>
     });
   };
 
   _renderNoResults = () => {
-    const {formatMessage} = this.props.intl;
+    //const {formatMessage} = this.props.intl;
     return <div className="search__no-results">
-      <p className="search__no-results_header">{formatMessage(messages.noSearchesHeader)}</p>
-      <p className="search__no-results_text">{formatMessage(messages.noSearchesText)}</p>
+      <p className="search__no-results_header">No Recent Searches found.</p>
+      <p className="search__no-results_text">You can search by word or phrase, glossary term, page number, chapter or section.</p>
     </div>
   };
 
@@ -64,6 +62,10 @@ class ResultsComponent extends React.Component {
     );
   }
 
+}
+
+ResultsComponent.propTypes = {
+  results: PropTypes.array.isRequired  
 }
 
 export default ResultsComponent;

@@ -5,8 +5,8 @@
 
 module.exports = {
   entry: {
-   dev: ['webpack/hot/dev-server', './main.js', './demo/demo.js'],
-   dist: ['./main.js']
+    dev: ['webpack/hot/dev-server', './main.js', './demo/demo.js'],
+    dist: ['./main.js']
   },
   output: {
     path: './',
@@ -57,7 +57,11 @@ module.exports = {
         test: /\.json$/,
         loader: 'json'
       },
-      { test: /\.(woff|png|jpg|gif)$/, loader: 'url-loader?limit=10000' }
+      { test: /\.(woff|png|jpg|gif)$/, loader: 'url-loader?limit=10000' },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url?mimetype=image/svg+xml'
+      }
     ]
   }
 };

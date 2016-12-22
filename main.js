@@ -7,7 +7,7 @@ import './main.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchComponent from './src/js/search-component';
+import ComponentOwner from './src/js/component-owner';
 
 // i18n, set up for French out-of-the-box
 import {addLocaleData, IntlProvider} from 'react-intl';
@@ -30,11 +30,12 @@ export default class DemoSearchComponent {
 
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <SearchComponent data={config} />
+        <ComponentOwner data={config} />
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
   }
 }
+export SearchComponent from './src/js/search-component';
 
 document.body.addEventListener('o.InitSearchComponent', e => new DemoSearchComponent(e.detail));
