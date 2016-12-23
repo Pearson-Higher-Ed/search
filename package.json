@@ -1,6 +1,6 @@
 {
   "name": "@pearson-incubator/search",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "./main.js",
   "scripts": {
@@ -23,6 +23,7 @@
     "url": "https://github.com/Pearson-Higher-Ed/"
   },
   "dependencies": {
+    "conventional-changelog": "^1.1.0",
     "react-intl": "~2.0.1"
   },
   "devDependencies": {
