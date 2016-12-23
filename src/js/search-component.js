@@ -8,7 +8,7 @@ class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search_results: []
+      search_results: this.props.results
     };
   }
 
@@ -27,7 +27,7 @@ class SearchComponent extends React.Component {
 
   _change = (e) => {
     console.log('keydown0', new Date());
-    this.props.data.service.getResults(e.target.value, this._updateState.bind(this));
+    //this.props.data.service.getResults(e.target.value, this._updateState.bind(this));
   };
 
   render() {
