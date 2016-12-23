@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-//import {messages} from './defaultMessages';
+import {messages} from './defaultMessages';
 
 class ResultsComponent extends React.Component {
 
@@ -38,10 +38,10 @@ class ResultsComponent extends React.Component {
   };
 
   _renderNoResults = () => {
-    //const {formatMessage} = this.props.intl;
+    const {formatMessage} = this.props.intl;
     return <div className="search__no-results">
-      <p className="search__no-results_header">No Recent Searches found.</p>
-      <p className="search__no-results_text">You can search by word or phrase, glossary term, page number, chapter or section.</p>
+      <p className="search__no-results_header">{formatMessage(messages.noSearchesHeader)}</p>
+      <p className="search__no-results_text">{formatMessage(messages.noSearchesText)}</p>
     </div>
   };
 

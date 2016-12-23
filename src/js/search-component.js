@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
-//import {intlShape, injectIntl} from 'react-intl';
+import {intlShape} from 'react-intl';
 import ResultsComponent from './results-component';
-//import {messages} from './defaultMessages';
+import {messages} from './defaultMessages';
 
 class SearchComponent extends React.Component {
 
@@ -15,7 +15,7 @@ class SearchComponent extends React.Component {
   _clearInput = () => {
     this.refs.searchInput.value = '';
     this.setState({
-      search_results : []
+      search_results : this.props.results
     });
   };
 
@@ -25,13 +25,17 @@ class SearchComponent extends React.Component {
     });
   };
 
-  _change = (e) => {
+  _change = () => {
     console.log('keydown0', new Date());
+
+    this.setState({
+      search_results : this.props.results
+    });
     //this.props.data.service.getResults(e.target.value, this._updateState.bind(this));
   };
 
   render() {
-    //const {formatMessage} = this.props.intl;
+    const {formatMessage} = this.props.intl;
     return (
        <div className="searchCompContainer">
           <div className="triangle-up"></div>
@@ -42,12 +46,12 @@ class SearchComponent extends React.Component {
               <input id="search__input"
                 ref="searchInput"
                 type="text"
-               // placeholder={formatMessage(messages.placeholder)}
+                placeholder={formatMessage(messages.placeholder)}
                 title=""
                 onChange={this._change}/><i className="close" onClick={this._clearInput}></i>
               </div>
               <div className="search__results">
-                  <ResultsComponent results={this.state.search_results} />
+                  <ResultsComponent results={this.state.search_results} intl={this.props.intl} />
               </div>
         </div>
         </div>
@@ -56,7 +60,7 @@ class SearchComponent extends React.Component {
 }
 
 SearchComponent.propTypes = {
-  //intl: intlShape.isRequired,
+  intl: intlShape.isRequired,
   data: PropTypes.shape({
     elementId: PropTypes.string.isRequired,
     locale: PropTypes.string
