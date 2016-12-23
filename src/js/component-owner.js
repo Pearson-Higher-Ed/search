@@ -28,7 +28,7 @@ class ComponentOwner extends React.Component {
   render() {    
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <SearchComponent datat={this.props.config}/>
+        <SearchComponent data={this.props.data} results={this.props.results} intl={this.props.intl} />
       </MuiThemeProvider>
     )
   }
