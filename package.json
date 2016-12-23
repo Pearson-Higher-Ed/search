@@ -1,6 +1,6 @@
 {
   "name": "@pearson-incubator/search",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "main": "./main.js",
   "scripts": {
