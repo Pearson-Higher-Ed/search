@@ -7,7 +7,7 @@ import throttle from 'lodash/throttle';
 
 
 function SearchService() {
-  this.getUrl = 'https://etext-qa-stg.pearson.com/search/pxereader-cm/api/cm/search?indexId=a1e74966224c21e5b0c8f4d193f74817&s=0&n=100';
+  this.getUrl = 'https://etext-qa-stg.pearson.com/search/pxereader-cm/api/cm/search?indexId=90104c7ed4e49497887808b3e8cb7f8c&s=0&n=100';
   document.body.addEventListener('o.SearchChanged', e => this.getResults(e.detail));
 }
 

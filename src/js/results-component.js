@@ -6,13 +6,13 @@ class ResultsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list:props.results
+      list: props.results
     };
   }
 
   componentWillReceiveProps = (nextProps) => {
     this.setState({
-      list:nextProps.results
+      list: nextProps.results
     });
   };
 
@@ -24,17 +24,15 @@ class ResultsComponent extends React.Component {
     const that = this;
     const list = this.state.list;
     const numResults = this.state.list.length;
-    return list.map(function(n) {
-      return <li
-        key= {n.url}
-        role="link"
-        onClick = {that._handleClick(n.url, numResults)}
-      >
-        <span className="glossaryterm"></span>
-        <p className="title"> {n.title + ' :'}</p>
-        <p className="content" dangerouslySetInnerHTML={{__html: n.contentPreview}} />
-      </li>
-    });
+    return list.map(n => <li
+      key={n.url}
+      role="link"
+      onClick={that._handleClick(n.url, numResults)}
+    >
+      <span className="glossaryterm"></span>
+      <p className="title"> {n.title + ' :'}</p>
+      <p className="content" dangerouslySetInnerHTML={{__html: n.contentPreview}} />
+    </li>);
   };
 
   _renderNoResults = () => {
@@ -65,7 +63,7 @@ class ResultsComponent extends React.Component {
 }
 
 ResultsComponent.propTypes = {
-  results: PropTypes.array.isRequired  
+  results: PropTypes.array.isRequired
 }
 
 export default ResultsComponent;
