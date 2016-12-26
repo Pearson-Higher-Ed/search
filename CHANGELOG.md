@@ -1,5 +1,5 @@
-<a name="0.1.8"></a>
-## [0.1.8](https://github.com/Pearson-Higher-Ed/compare/v0.1.7...v0.1.8) (2016-12-26)
+<a name="0.1.9"></a>
+## [0.1.9](https://github.com/Pearson-Higher-Ed/compare/v0.1.7...v0.1.9) (2016-12-26)
 
 
 
