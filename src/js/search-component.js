@@ -27,7 +27,11 @@ class SearchComponent extends React.Component {
   };
 
   _change = () => {
-    this.refs.close.style.display = 'block';
+    if (this.refs.searchInput.value === '') {
+      this.refs.close.style.display = 'none';
+    } else {
+      this.refs.close.style.display = 'block';
+    }
     console.log('keydown0', new Date());
     //this.props.fetch();
     this.setState({

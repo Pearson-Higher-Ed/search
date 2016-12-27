@@ -16,21 +16,19 @@ class ResultsComponent extends React.Component {
     });
   };
 
-  _handleClick = (url, numResults) => {
+  /*_handleClick = (url, numResults) => {
     console.log(url, numResults);
-  };
+  };*/
 
   _renderResults = () => {
-    const that = this;
+    //const that = this;
     const list = this.state.list;
-    const numResults = this.state.list.length;
+    //const numResults = this.state.list.length;
     return list.map(n => <li
       key={n.url}
-      role="link"
-      onClick={that._handleClick(n.url, numResults)}
-    >
+      role="link"> <span className="titleWrapper">
       <span className="glossaryterm"></span>
-      <p className="title"> {n.title + ' :'}</p>
+      <span className="title"> {n.title}</span></span>
       <p className="content" dangerouslySetInnerHTML={{__html: n.contentPreview}} />
     </li>);
   };

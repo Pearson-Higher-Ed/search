@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
 .search {
   width: 100%;
+  font-family:Open Sans;
   .search__box {
     position: relative;
     height: 94px;
@@ -56,6 +59,7 @@
     overflow: hidden;
     ul{
       list-style: none;
+      max-height:inherit;
       margin: 0;
       padding: 0;
 //      min-height: 480px;
@@ -67,9 +71,9 @@
         border-bottom: 1px solid #c7c7c7;
       }
       .title{
-        font-size: 14px;
-        display: inline-block;
-        margin-left: 15px;
+        font-size: 16px;
+        width:90%;
+        float:left;
       }
       .content{
         font-size: 16px;
@@ -82,10 +86,18 @@
   display : none;
 }
 .glossaryterm {
-  width: 16px;
   height: 16px;
   background:  url(./images/glossaryterm.svg)0 0 no-repeat;
   display: inline-block;
+  margin: 3px 15px 0 0;
+  width: 5%;
+  float: left;
+}
+.titleWrapper{
+  width:100%;
+  display:block;
+  float:left;
+  margin-bottom:12px;
 }
 .Combined-Shape {
   width: 400px;
