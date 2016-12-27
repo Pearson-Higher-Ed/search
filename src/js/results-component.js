@@ -1,4 +1,6 @@
 import React, {PropTypes} from 'react';
+import CircularProgress from 'material-ui/CircularProgress';
+
 //import {messages} from './defaultMessages';
 
 class ResultsComponent extends React.Component {
@@ -16,29 +18,39 @@ class ResultsComponent extends React.Component {
     });
   };
 
-  /*_handleClick = (url, numResults) => {
-    console.log(url, numResults);
-  };*/
-
   _renderResults = () => {
     //const that = this;
     const list = this.state.list;
-    //const numResults = this.state.list.length;
-    return list.map(n => <li
+    if (this.props.fetching) {
+      return (<CircularProgress
+        style={{ margin: '40px auto', display: 'block' }}
+      />);
+    }
+    if (this.props.fetched) {
+      return list.map(n => <li
       key={n.url}
       role="link"> <span className="titleWrapper">
       <span className="glossaryterm"></span>
       <span className="title"> {n.title}</span></span>
       <p className="content" dangerouslySetInnerHTML={{__html: n.contentPreview}} />
     </li>);
+    }
+    
   };
 
   _renderNoResults = () => {
     //const {formatMessage} = this.props.intl;
-    return <div className="search__no-results">
-      <p className="search__no-results_header">No Recent Searches found.</p>
-      <p className="search__no-results_text">You can search by word or phrase, glossary term, page number, chapter or section</p>
-    </div>
+    if (this.props.fetching) {
+      return (<CircularProgress
+        style={{ margin: '40px auto', display: 'block' }}
+      />);
+    }
+    if (this.props.fetching===undefined || this.props.fetched || (!this.props.fetched && !this.props.fetching)) {
+      return <div className="search__no-results">
+        <p className="search__no-results_header">No Recent Searches found.</p>
+        <p className="search__no-results_text">You can search by word or phrase, glossary term, page number, chapter or section</p>
+      </div>
+    }
   };
 
   render() {

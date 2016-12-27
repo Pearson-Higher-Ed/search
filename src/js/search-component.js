@@ -8,22 +8,14 @@ class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search_results: this.props.results
+      search_results: this.props.searchData ? this.props.searchData : []
     };
   }
 
   _clearInput = () => {
     this.refs.searchInput.value = '';
-    this.setState({
-      search_results : []
-    });
     this.refs.close.style.display = 'none';
-  };
-
-  _updateState = (stateObj) => {
-    this.setState({
-      search_results : stateObj.hits
-    });
+    this.props.fetch(this.props.indexId, this.refs.searchInput.value);
   };
 
   _change = () => {
@@ -32,16 +24,14 @@ class SearchComponent extends React.Component {
     } else {
       this.refs.close.style.display = 'block';
     }
-    console.log('keydown0', new Date());
-    //this.props.fetch();
-    this.setState({
-      search_results : this.props.results
-    });
+    this.props.fetch(this.props.indexId, this.refs.searchInput.value);
     
   };
 
   render() {
     //const {formatMessage} = this.props.intl;
+    const { data, fetched, fetching } = this.props.searchData;
+    
     return (
        <div className="searchCompContainer">
           <div className="triangle-up"></div>
@@ -57,7 +47,7 @@ class SearchComponent extends React.Component {
                 onChange={this._change}/><i className="close" ref="close" onClick={this._clearInput}></i>
               </div>
               <div className="search__results">
-                  <ResultsComponent results={this.state.search_results}/>
+                  <ResultsComponent results={data ? (data.data ? data.data.hits : this.state.search_results) : this.state.search_results} fetching={fetching} fetched={fetched} />
               </div>
         </div>
         </div>

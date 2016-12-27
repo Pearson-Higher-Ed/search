@@ -30,7 +30,7 @@ export default class DemoSearchComponent {
 
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
-        <ComponentOwner data={config}  results = {config.results}/>
+        <ComponentOwner data={config}  results = {config.results} fetch={config.fetch}/>
       </IntlProvider>,
       document.getElementById(config.elementId)
     );
