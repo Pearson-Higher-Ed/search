@@ -72,8 +72,9 @@
       }
       .title{
         font-size: 16px;
-        width:90%;
+        width:74%;
         float:left;
+        font-weight: bold;
       }
       .content{
         font-size: 16px;
@@ -89,7 +90,7 @@
   height: 16px;
   background:  url(./images/glossaryterm.svg)0 0 no-repeat;
   display: inline-block;
-  margin: 3px 15px 0 0;
+  margin: 3px 3% 0 0;
   width: 5%;
   float: left;
 }
@@ -109,5 +110,15 @@
   border-left: 13px solid transparent;
   border-right: 13px solid transparent;
   border-bottom: 20px solid #fff;
-  margin-left: 296px;
+  margin-left: 350px;
+}
+.phraseTitle {
+  width: 82% !important;
+}
+.pageNo {
+  margin: 0;
+  float: right;
+}
+.phraseList{
+  cursor: pointer;
 }

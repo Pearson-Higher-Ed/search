@@ -18,25 +18,47 @@ class ResultsComponent extends React.Component {
     });
   };
 
+  handleLinkClick(pageId) {
+    this.props.searchListClick(pageId);
+  }
+
+  renderGlossaryList = glossaryList => (<div>
+    <span className="titleWrapper">
+      <span className="glossaryterm" />
+      <span className="title"> {glossaryList.glossaryTitle}</span>
+      <span className="pageNo">{glossaryList.pageNo}</span>
+    </span>
+    <p className="content" dangerouslySetInnerHTML={{ __html: glossaryList.contentPreview }} />
+  </div>)
+
+  renderPhraseList = phraseList => (<div className="phraseList" onClick={this.handleLinkClick.bind(this, phraseList.urn)}>
+    <span className="titleWrapper">
+      <span className="title phraseTitle"> {phraseList.title}</span>
+      <span className="pageNo">{phraseList.pageNo}</span>
+    </span>
+    <p className="content" dangerouslySetInnerHTML={{ __html: phraseList.contentPreview }} />
+  </div>)
+
   _renderResults = () => {
-    //const that = this;
+    // const that = this;
     const list = this.state.list;
+
     if (this.props.fetching) {
       return (<CircularProgress
         style={{ margin: '40px auto', display: 'block' }}
       />);
     }
     if (this.props.fetched) {
-      return list.map(n => <li
-      key={n.url}
-      role="link"> <span className="titleWrapper">
-      <span className="glossaryterm"></span>
-      <span className="title"> {n.title}</span></span>
-      <p className="content" dangerouslySetInnerHTML={{__html: n.contentPreview}} />
-    </li>);
+      const listItems = list.map((datalist) =>
+        <li
+          key={datalist.id}
+          role="link"
+        >
+          {(datalist.glossaryTitle ? this.renderGlossaryList(datalist) : this.renderPhraseList(datalist))}
+        </li>);
+      return (<ul>{listItems}</ul>);
     }
-    
-  };
+  }
 
   _renderNoResults = () => {
     //const {formatMessage} = this.props.intl;
@@ -48,7 +70,7 @@ class ResultsComponent extends React.Component {
     if (this.props.fetching===undefined || this.props.fetched || (!this.props.fetched && !this.props.fetching)) {
       return <div className="search__no-results">
         <p className="search__no-results_header">No Recent Searches found.</p>
-        <p className="search__no-results_text">You can search by word or phrase, glossary term, page number, chapter or section</p>
+        <p className="search__no-results_text">You can search by word or phrase, glossary term, chapter or section</p>
       </div>
     }
   };

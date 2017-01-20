@@ -19,7 +19,7 @@ const svc = new SearchService();
   url: '456'
 } ];*/
 window.fetch = function() {
-  alert('fetch function should be called by application');
+ // alert('fetch function should be called by application');
 };
 
 const mockData = {
