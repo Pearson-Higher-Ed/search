@@ -37,47 +37,47 @@ class SearchComponent extends React.Component {
             {
               id: 1,
               urn: 'urn:pearson:manifestation:1c31193b-c5fe-4b17-881d-1f591351e82e',
-              title: 'Remarks',
+              title: 'Nerves',
               glossaryTitle: '',
-              contentPreview: 'maintains its current strength for the next 24 hours as you complete the following. What state(<em>s</em>',
+              contentPreview: 'The first part of this complex arrangement is the nervous system.',
               orderId: 0,
-              pageNo: 'PPE-1'
+              pageNo: 'Pg-1'
             },
             {
               id: 2,
               urn: '',
               title: '',
-              glossaryTitle: 'Problems',
-              contentPreview: 'following dates. Remember to indicate north (N) or south (<em>S</em>). March 21 June 5 December 10 Use Figure 2.A',
+              glossaryTitle: 'NeuroScience',
+              contentPreview: 'The field of neuroscience is a branch of the life sciences that deals with the structure and functioning of the brain and the neurons, nerves, and nervous tissue that form the nervous system.',
               orderId: 0,
-              pageNo: 'PPE-2'
+              pageNo: 'Pg-2'
             },
             {
               id: 3,
               urn: 'urn:pearson:manifestation:5ed86b6a-1ef0-4391-a708-cbe31101af7f',
-              title: 'Content 15',
+              title: 'Synapse',
               glossaryTitle: '',
-              contentPreview: 'Tropical Stations   J F M A M J J A <em>S</em> O N D YR Singapore, 1° 21 N; 10 m Temp. (°C)  26.1   26.7   27.2 184 236 306 2282 Belém, Brazil, 1° 18 <em>S</em>; 10 m Temp. (°C)   25.2   25.0   25.1   25.5   25.7   25.7 annual variation. Table 15.2 Data for Tropical Wet and Dry Stations   J F M A M J J A <em>S</em> O N D YR <em>S</em>; 165 m Temp. (°C)  27.2   27.2   27.2  26.6 25.5 23.8 24.4 25.5 27.7   27.7   27.7   27.2   26.5 J J A <em>S</em> O N D Malduguri, Nigeria, 11° 51 N Precip. (mm) 0 0 0 7.6 40.6 68.6 180.3 220.9 106.6 17.7',
+              contentPreview: 'The presynaptic terminal is not empty. It has a number of little sac-like structures in it called synaptic vesicles .',
               orderId: 0,
-              pageNo: 'PPE-3'
+              pageNo: 'Pg-3'
             },
             {
               id: 4,
               urn: '',
               title: '',
-              glossaryTitle: '15.4 The Dry Climates (B)',
-              contentPreview: 'Data for Subtropical Steppe and Desert Stations   J F M A M J J A <em>S</em> O N D YR Marrakech, Morocco, 31  6 578 Alice Springs, Australia, 23° 38 <em>S</em>; 570 m Temp. (°C) 28.6 27.8 24.7 19.7 15.3 12.2 11.7 14.4 Data for West Coast Tropical Desert Stations   J F M A M J J A <em>S</em> O N D YR Port Nolloth, South Africa, 29° 14 <em>S</em>; 7 m Temp. (°C) 15 16 15 14 14 13 12 12 13 13 15 15 14 Precip. (mm) 2.5 2.5 5.1 5.1 10.2 7.6 10.2 7.6 5.1 2.5 2.5 2.5 63.4 Lima, Peru, 12° 02 <em>S</em>; 155 m Temp. (°C) 22 23 23 21 19 17 16 16 16 17',
+              glossaryTitle: 'Perspective',
+              contentPreview: 'Current research to help individuals with brain injuries or neurological conditions has moved far beyond the computer that assisted Rick.',
               orderId: 0,
-              pageNo: 'PPE-4'
+              pageNo: 'Pg-4'
             },
             {
               id: 5,
               urn: 'urn:pearson:manifestation:729b5f23-57fd-445e-94a4-f10a73261632',
-              title: 'Preface',
+              title: 'Summary',
               glossaryTitle: '',
-              contentPreview: 'University of West Florida Robert Quinn, Eastern Washington University Robert <em>S</em>. Rose, Tidewater',
+              contentPreview: 'What are the nervous system, neurons, and nerves, and how do they relate to one another.',
               orderId: 0,
-              pageNo: 'PPE-5'
+              pageNo: 'Pg-5'
             }
           ],
           wordHits: [
