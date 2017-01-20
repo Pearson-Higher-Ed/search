@@ -107,7 +107,7 @@ class SearchComponent extends React.Component {
         request: {}
       }
     };
-    const { data, fetched, fetching } = this.props.searchData;
+    const { fetched, fetching } = this.props.searchData;
     const mockData = fetched ? dummyData.data.data.hits : this.state.search_results;
    
     return (
