@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
-//import {intlShape} from 'react-intl';
+import React, { PropTypes } from 'react';
+// import {intlShape} from 'react-intl';
 import ResultsComponent from './results-component';
-//import {messages} from './defaultMessages';
+// import {messages} from './defaultMessages';
 
 class SearchComponent extends React.Component {
 
@@ -25,12 +25,10 @@ class SearchComponent extends React.Component {
       this.refs.close.style.display = 'block';
     }
     this.props.fetch(this.props.indexId, this.refs.searchInput.value);
-    
   };
 
   render() {
-    //const {formatMessage} = this.props.intl;
-    //const { data, fetched, fetching } = this.props.searchData;
+    // const {formatMessage} = this.props.intl;
     const dummyData = {
       data: {
         data: {
@@ -107,39 +105,40 @@ class SearchComponent extends React.Component {
           url: 'https://etext-qa-stg.pearson.com/search/pxereader-cm/api/cm/search?indexId=90104c7ed4e49497887808b3e8cb7f8c&q=s&s=0&n=100'
         },
         request: {}
-      },
-      fetched: true,
-      fetching: false,
-      error: null
+      }
     };
-
-    const mockData = dummyData ? (dummyData.data.data ? dummyData.data.data.hits : this.state.search_results) : this.state.search_results;
-    
+    const { data, fetched, fetching } = this.props.searchData;
+    const mockData = fetched ? dummyData.data.data.hits : this.state.search_results;
+   
     return (
-       <div className="searchCompContainer">
-          <div className="triangle-up"></div>
-          <div className="search Combined-Shape">
-            <div id="search__box"
-              className="search__box"
-              role="search">
-              <input id="search__input"
-                ref="searchInput"
-                type="text"
-                placeholder="search by word or phrase"
-                title=""
-                onChange={this._change}/><i className="close" ref="close" onClick={this._clearInput}></i>
-              </div>
-              <div className="search__results">
-                <ResultsComponent results={mockData} fetching={dummyData.fetching} fetched={dummyData.fetched} searchListClick={this.props.searchListClick} />
-              </div>
+      <div className="searchCompContainer">
+        <div className="triangle-up" />
+        <div className="search Combined-Shape">
+          <div
+            id="search__box"
+            className="search__box"
+            role="search"
+          >
+            <input
+              id="search__input"
+              ref="searchInput"
+              type="text"
+              placeholder="search by word or phrase"
+              title=""
+              onChange={this._change}
+            /><i className="close" ref="close" onClick={this._clearInput} />
+          </div>
+          <div className="search__results">
+            <ResultsComponent results={mockData} fetching={fetching} fetched={fetched} searchListClick={this.props.searchListClick} />
+          </div>
         </div>
-        </div>
-    )
+      </div>
+    );
   }
 }
 
 SearchComponent.propTypes = {
-  //intl: intlShape.isRequired,
+  // intl: intlShape.isRequired,
   data: PropTypes.shape({
     elementId: PropTypes.string.isRequired,
     locale: PropTypes.string
