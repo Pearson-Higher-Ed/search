@@ -169,10 +169,11 @@ class SearchComponent extends React.Component {
               placeholder="search by word or phrase"
               title=""
               onChange={this._change}
+              onKeyDown={this.props.searchKeySelect}
             /><i className="close" ref="close" onClick={this._clearInput} />
           </div>
           <div className="search__results">
-            <ResultsComponent results={mockData} fetching={fetching} fetched={fetched} searchListClick={this.props.searchListClick} />
+            <ResultsComponent results={mockData} fetching={fetching} fetched={fetched} searchListClick={this.props.searchListClick} listClick={this.props.listClick} />
           </div>
         </div>
       </div>

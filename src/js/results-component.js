@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
-//import {messages} from './defaultMessages';
+// import {messages} from './defaultMessages';
 
 class ResultsComponent extends React.Component {
 
@@ -20,6 +20,7 @@ class ResultsComponent extends React.Component {
 
   handleLinkClick(pageId) {
     this.props.searchListClick(pageId);
+    this.props.listClick();
   }
 
   renderGlossaryList = glossaryList => (<div>
@@ -49,7 +50,7 @@ class ResultsComponent extends React.Component {
       />);
     }
     if (this.props.fetched) {
-      const listItems = list.map((datalist) =>
+      const listItems = list.map(datalist =>
         <li
           key={datalist.id}
           role="link"
@@ -61,17 +62,17 @@ class ResultsComponent extends React.Component {
   }
 
   _renderNoResults = () => {
-    //const {formatMessage} = this.props.intl;
+    // const {formatMessage} = this.props.intl;
     if (this.props.fetching) {
       return (<CircularProgress
         style={{ margin: '40px auto', display: 'block' }}
       />);
     }
-    if (this.props.fetching===undefined || this.props.fetched || (!this.props.fetched && !this.props.fetching)) {
-      return <div className="search__no-results">
+    if (this.props.fetching === undefined || this.props.fetched || (!this.props.fetched && !this.props.fetching)) {
+      return (<div className="search__no-results">
         <p className="search__no-results_header">No Recent Searches found.</p>
         <p className="search__no-results_text">You can search by word or phrase, glossary term, chapter or section</p>
-      </div>
+      </div>);
     }
   };
 
@@ -81,13 +82,13 @@ class ResultsComponent extends React.Component {
 
     if (list.length) {
       nodes = this._renderResults();
-    }else {
+    } else {
       nodes = this._renderNoResults();
     }
 
-    return(
+    return (
       <ul>
-           {nodes}
+        {nodes}
       </ul>
     );
   }
@@ -96,6 +97,6 @@ class ResultsComponent extends React.Component {
 
 ResultsComponent.propTypes = {
   results: PropTypes.array.isRequired
-}
+};
 
 export default ResultsComponent;
