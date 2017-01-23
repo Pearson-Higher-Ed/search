@@ -173,7 +173,10 @@ class SearchComponent extends React.Component {
             /><i className="close" ref="close" onClick={this._clearInput} />
           </div>
           <div className="search__results">
-            <ResultsComponent results={mockData} fetching={fetching} fetched={fetched} searchListClick={this.props.searchListClick} listClick={this.props.listClick} />
+            <ResultsComponent results={mockData} fetching={fetching} 
+            fetched={fetched} 
+            searchListClick={this.props.searchListClick}
+            listClick={this.props.listClick} />
           </div>
         </div>
       </div>
