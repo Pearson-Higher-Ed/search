@@ -126,13 +126,13 @@ class SearchComponent extends React.Component {
       const filteredTitleData = find(dummyData.data.data.hits, hits => hits.title.toLowerCase().indexOf(searchInputVal) >= 0);
       const filteredGlosaryData = find(dummyData.data.data.hits, hits => hits.glossaryTitle.toLowerCase().indexOf(searchInputVal) >= 0);
       // const filteredData = find(dummyData.data.data.hits, hits => hits.title.toLowerCase().indexOf(searchInputVal) >= 0, hits.glossaryTitle.toLowerCase().indexOf(searchInputVal) >= 0);
-      if (filteredTitleData) {
-        dataArray.push(filteredTitleData);
-      }
       if (filteredGlosaryData) {
         dataArray.push(filteredGlosaryData);
       }
-      if (filteredTitleData || filteredGlosaryData) {
+      if (filteredTitleData) {
+        dataArray.push(filteredTitleData);
+      }
+      if (filteredGlosaryData || filteredTitleData) {
         this.setState({
           filteredMockData: dataArray
         });
