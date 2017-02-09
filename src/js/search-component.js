@@ -142,6 +142,9 @@ class SearchComponent extends React.Component {
         });
       }
     }
+    if (this.refs.searchInput.value === ' ') {
+      this.setState({ clearsearch: true });
+    }
   };
 
   render() {
