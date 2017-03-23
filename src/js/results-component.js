@@ -23,6 +23,11 @@ class ResultsComponent extends React.Component {
     this.props.listClick();
   }
 
+  _handleSearchClick = (pageOrder, e) => {
+    this.props.goToPage(pageOrder);
+    
+  };
+
   renderGlossaryList = glossaryList => (<div>
     <span className="titleWrapper">
       <span className="glossaryterm" />
@@ -41,7 +46,7 @@ class ResultsComponent extends React.Component {
   </div>)
 
   _renderResults = () => {
-    // const that = this;
+    const that = this;
     const list = this.state.list;
 
     if (this.props.fetching) {
@@ -50,6 +55,36 @@ class ResultsComponent extends React.Component {
       />);
     }
     if (this.props.fetched) {
+      if(this.state.list[0].searchTextList){
+        var Resultlist;
+        Resultlist = this.state.list[0].searchTextList;
+        Resultlist.sort(function(n1,n2){
+          return n1.pageOrder - n2.pageOrder
+        });
+      return(<div><ul className="search__results">
+            {
+             Resultlist.map(function(n) {
+                return <li
+                  className="search__results"
+                  key={n.pageOrder}>
+                   <span className="titleWrapper">
+                       <span className="glossaryterm"></span>
+                       <span className="title"> {n.pageOrder}</span>
+                   </span>
+                  <a className="content"
+                    //onFocus= {that.onFocus.bind(that)}
+                    //onKeyDown= {that.onLiBlur.bind(that)}
+                    data-pageOrder={n.pageOrder}
+                    href="javascript:void(0)"
+                    onClick = {that._handleSearchClick.bind(that, n.pageOrder)}
+                    dangerouslySetInnerHTML={{__html: n.bestTextSnippet}} />
+                  </li>
+              })
+            }
+          </ul>
+        </div>     
+        );
+    }else{
       const listItems = list.map(datalist =>
         <li
           key={datalist.id}
@@ -58,6 +93,7 @@ class ResultsComponent extends React.Component {
           {(datalist.glossaryTitle ? this.renderGlossaryList(datalist) : this.renderPhraseList(datalist))}
         </li>);
       return (<ul>{listItems}</ul>);
+     }
     }
   }
 
