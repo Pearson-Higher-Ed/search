@@ -152,6 +152,10 @@ class SearchComponent extends React.Component {
     console.log(this.state.filteredMockData);
     const { fetched, fetching } = this.props.searchData;
     let mockData = fetched ? this.state.filteredMockData : this.state.search_results;
+    if(fetched && this.props.isET1==='Y')
+    {
+      mockData = this.props.searchData.data;
+    }
     if (this.state.clearsearch === true) {
       mockData = [];
     }
