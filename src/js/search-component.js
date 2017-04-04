@@ -106,14 +106,7 @@ class SearchComponent extends React.Component {
   _clearInput = () => {
     this.refs.searchInput.value = '';
     this.refs.close.style.display = 'none';
-    if(this.props.isET1==='Y')
-    {
-      this.props.fetch(this.refs.searchInput.value,this.props.bookId,this.props.globalBookId,this.props.ssoKey);
-    }
-    else
-    {
-      this.props.fetch(this.props.indexId, '');
-    }
+    this.props.fetch(this.props.indexId, '');
     this.setState({ clearsearch: true });
   };
 
@@ -152,20 +145,21 @@ class SearchComponent extends React.Component {
     if (this.refs.searchInput.value === ' ') {
       this.setState({ clearsearch: true });
     }
-    if(this.props.isET1==='Y'){
-      this.props.fetch(this.refs.searchInput.value,this.props.bookId,this.props.globalBookId,this.props.ssoKey);
-    }
   };
 
   render() {
     // const {formatMessage} = this.props.intl;
     console.log(this.state.filteredMockData);
-    const { data, fetched, fetching } = this.props.searchData;
+    const { fetched, fetching } = this.props.searchData;
     let mockData = fetched ? this.state.filteredMockData : this.state.search_results;
+    if(fetched && this.props.isET1==='Y')
+    {
+      mockData = this.props.searchData.data;
+    }
     if (this.state.clearsearch === true) {
       mockData = [];
     }
-    const isET1=this.props.isET1;
+
     return (
       <div className="searchCompContainer">
         <div className="triangle-up" />
@@ -186,15 +180,10 @@ class SearchComponent extends React.Component {
             /><i className="close" ref="close" onClick={this._clearInput} />
           </div>
           <div className="search__results">
-
-          {isET1==='Y' ? (<ResultsComponent goToPage={this.props.goToPage} 
-                      results={data ? (data.data ? data.data : []) : []} 
-                      searchClickHandler={this.props.callbacks} 
-                      fetching={fetching} fetched={fetched}  />) : 
-                      (<ResultsComponent results={mockData} fetching={fetching} 
-                        fetched={fetched} 
-                        searchListClick={this.props.searchListClick}
-                        listClick={this.props.listClick} />)}
+            <ResultsComponent results={mockData} fetching={fetching} 
+            fetched={fetched} 
+            searchListClick={this.props.searchListClick}
+            listClick={this.props.listClick} />
           </div>
         </div>
       </div>
