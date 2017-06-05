@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 // import {intlShape} from 'react-intl';
 import ResultsComponent from './results-component';
 // import {messages} from './defaultMessages';
-import find from 'lodash/find';
 
 const dummyData = {
   data: {
@@ -123,9 +122,8 @@ class SearchComponent extends React.Component {
       this.refs.close.style.display = 'block';
       this.setState({ clearsearch: false });
       const dataArray = [];
-      const filteredTitleData = find(dummyData.data.data.hits, hits => hits.title.toLowerCase().indexOf(searchInputVal) >= 0);
-      const filteredGlosaryData = find(dummyData.data.data.hits, hits => hits.glossaryTitle.toLowerCase().indexOf(searchInputVal) >= 0);
-      // const filteredData = find(dummyData.data.data.hits, hits => hits.title.toLowerCase().indexOf(searchInputVal) >= 0, hits.glossaryTitle.toLowerCase().indexOf(searchInputVal) >= 0);
+      const filteredTitleData = dummyData.data.data.hits.find(hits => hits.title.toLowerCase().indexOf(searchInputVal) >= 0);
+      const filteredGlosaryData = dummyData.data.data.hits.find(hits => hits.glossaryTitle.toLowerCase().indexOf(searchInputVal) >= 0);
       if (filteredGlosaryData) {
         dataArray.push(filteredGlosaryData);
       }
