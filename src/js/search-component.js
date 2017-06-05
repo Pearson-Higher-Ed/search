@@ -122,6 +122,7 @@ class SearchComponent extends React.Component {
       this.refs.close.style.display = 'block';
       this.setState({ clearsearch: false });
       const dataArray = [];
+      
       const filteredTitleData = dummyData.data.data.hits.find(hits => hits.title.toLowerCase().indexOf(searchInputVal) >= 0);
       const filteredGlosaryData = dummyData.data.data.hits.find(hits => hits.glossaryTitle.toLowerCase().indexOf(searchInputVal) >= 0);
       if (filteredGlosaryData) {
