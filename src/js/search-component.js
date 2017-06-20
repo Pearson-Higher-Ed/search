@@ -189,7 +189,13 @@ class SearchComponent extends React.Component {
               title=""
               onChange={this._change}
               onKeyDown={this.props.searchKeySelect}
-            /><i className="close" ref="close" onClick={this._clearInput} />
+              tabIndex="0"
+            /><i 
+               className="close" 
+               ref="close" 
+               onClick={this._clearInput} 
+               onKeyDown={this._clearInput} 
+               tabIndex="0" />
           </div>
           <div className="search__results">
             <ResultsComponent results={mockData} fetching={fetching} 
