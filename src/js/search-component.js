@@ -175,7 +175,7 @@ class SearchComponent extends React.Component {
     return (
       <div className="searchCompContainer">
         <div className="triangle-up" />
-        <div className="search Combined-Shape">
+        <div className="search Combined-Shape" tabIndex="0" onKeyDown={e => this.props.searchKeySelect(e, 'search')}>
           <div
             id="search__box"
             className="search__box"
@@ -188,7 +188,6 @@ class SearchComponent extends React.Component {
               placeholder="search by word or phrase"
               title=""
               onChange={this._change}
-              onKeyDown={this.props.searchKeySelect}
               tabIndex="0"
             /><i 
                className="close" 
