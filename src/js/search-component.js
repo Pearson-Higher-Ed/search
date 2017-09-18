@@ -116,6 +116,10 @@ class SearchComponent extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   _clearInput = () => {
     this.refs.searchInput.value = '';
     this.refs.close.style.display = 'none';
@@ -177,12 +181,7 @@ class SearchComponent extends React.Component {
         <div className="triangle-up" />
         <div 
           className="search Combined-Shape"
-          tabIndex="0"
-          ref={(searchDiv) => {
-            this.searchField = searchDiv;
-            this.searchField.focus();
-          }}
-          onKeyDown={e => this.props.searchKeySelect(e, 'search', true)}>
+          tabIndex="0">
           <div
             id="search__box"
             className="search__box"
@@ -190,12 +189,12 @@ class SearchComponent extends React.Component {
           >
             <input
               id="search__input"
-              ref="searchInput"
               type="text"
               placeholder="search by word or phrase"
+              className="searchInputFld"
               title=""
               onChange={this._change}
-              onKeyDown={this.props.searchKeySelect}
+              ref={(input) => { this.input = input; }}
               tabIndex="0"
             /><i 
                className="close" 
