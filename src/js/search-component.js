@@ -121,16 +121,16 @@ class SearchComponent extends React.Component {
   }
 
   _clearInput = () => {
-    this.refs.searchInput.value = '';
+    this.input.value = '';
     this.refs.close.style.display = 'none';
     this.props.fetch(this.props.indexId, '');
     this.setState({ clearsearch: true });
   };
 
   _change = () => {
-    this.props.fetch(this.props.indexId, this.refs.searchInput.value);
-    const searchInputVal = this.refs.searchInput.value;
-    if (this.refs.searchInput.value === '') {
+    this.props.fetch(this.props.indexId, this.input.value);
+    const searchInputVal = this.input.value;
+    if (this.input.value === '') {
       this.refs.close.style.display = 'none';
       this.setState({ clearsearch: true });
       this.setState({
@@ -159,7 +159,7 @@ class SearchComponent extends React.Component {
         });
       }
     }
-    if (this.refs.searchInput.value === ' ') {
+    if (this.input.value === ' ') {
       this.setState({ clearsearch: true });
     }
   };
