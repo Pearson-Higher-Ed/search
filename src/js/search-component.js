@@ -40,8 +40,8 @@ class SearchComponent extends React.Component {
   };
 
   change = () => {
-    this.props.searchParams.queryString = this.input.value;
-    if (this.props.searchParams.queryString === ' ' || this.props.searchParams.queryString === '') {
+    this.props.searchParams.queryString = this.input.value.trim();
+    if (this.props.searchParams.queryString === '') {
       this.setState({ clearsearch: true });
     } else {
       this.refs.close.style.display = 'block';
@@ -57,8 +57,8 @@ class SearchComponent extends React.Component {
     }
   };
   handleSearchAction = () => {
-    this.props.searchParams.queryString = this.input.value;
-    if (this.props.searchParams.queryString === ' ' || this.props.searchParams.queryString === '') {
+    this.props.searchParams.queryString = this.input.value.trim();
+    if (this.props.searchParams.queryString === '') {
       this.setState({ clearsearch: true });
     } else {
       this.refs.close.style.display = 'block';
